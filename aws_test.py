@@ -35,6 +35,7 @@ class WhyIoTwhy(GridLayout):
 		button_quit.bind(on_press=self.quit_app)
 		button_reload = Button(text='reload', font_size=48)
 		button_reload.bind(on_press=self.reload)
+		self.cc = Label(text='Number of Cars:', font_size=24)
 		self.add_widget(self.lot2)
 		self.add_widget(self.nulllot)
 		self.add_widget(self.lot1)
@@ -43,6 +44,7 @@ class WhyIoTwhy(GridLayout):
 		self.add_widget(self.nulllot4)
 		self.add_widget(button_quit)
 		self.add_widget(button_reload)
+		self.add_widget(self.cc)
 
 	def awsbs(self, instance, dic):
 		for i in dic:
@@ -60,6 +62,8 @@ class WhyIoTwhy(GridLayout):
 					self.lot2.background_color = (1, 0, 0, 1)
 				elif i == 'lot3':
 					self.lot3.background_color = (1, 0, 0, 1)
+			elif i == 'cars':
+				self.cc.text = 'Number of Cars:{}'.format(dic[i])
 			else:
 				continue
 
